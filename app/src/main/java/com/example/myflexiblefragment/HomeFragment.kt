@@ -21,7 +21,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-
+        if (v?.id == R.id.btn_kategori) {
+            val mCategoryFragment = CategoryFragment()
+            val mFragmentManager = fragmentManager
+            mFragmentManager
+                ?.beginTransaction()
+                ?.apply {
+                    replace(R.id.frame_container, mCategoryFragment, CategoryFragment::class.java.simpleName)
+                    addToBackStack(null)
+                    commit()
+                }
+        }
     }
 
 }
